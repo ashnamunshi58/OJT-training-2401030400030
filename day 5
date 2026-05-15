@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Luxury Watches</title>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      }
+
+    body{
+      background:#f5f5f5;
+      font-family:'Poppins',sans-serif;
+      }
+
+    .top-bar{
+      width:100%;
+      background:#0f0f0f;
+      border-bottom:1px solid #222;
+      padding:18px 60px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      }
+
+    .top-left{
+      display:flex;
+      gap:35px;
+      }
+
+    .top-left a{
+      text-decoration:none;
+      color:#fff;
+      font-size:19px;
+      display:flex;
+      align-items:center;
+      gap:8px;
+      transition:0.3s;
+      }
+    .top-left a:hover{
+      color:#d4af37;
+      }
+
+    .logo{
+      font-size:40px;
+      color:#d4af37;
+      font-family:'Cinzel',serif;
+      letter-spacing:4px;
+      text-transform:uppercase;
+      }
+
+    .top-icons{
+      display:flex;
+      gap:25px;
+      align-items:center;
+      }
+
+   .top-icons i{
+      color:#fff;
+      font-size:24px;
+      cursor:pointer;
+      transition:0.3s;
+      position:relative;
+      }
+
+   .top-icons i:hover{
+      color:#d4af37;
+      }
+
+    .navbar{
+      width:100%;
+      background:rgb(248, 250, 252);
+      padding:18px 60px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      border-bottom:1px solid #e5e5e5;
+      }
+
+    .menu{
+      display:flex;
+      gap:35px;
+      align-items:center;
+      }
+
+    .menu a{
+      text-decoration:none;
+      color:#111;
+      font-size:20px;
+      transition:0.3s;
+      }
+
+    .menu a:hover{
+      color:#c79a3b;
+      }
+
+    .search-box{
+      position:relative;
+      margin-left:530px;
+      }
+
+    .search-box input{
+      width:280px;
+      padding:14px 50px 14px 22px;
+      border:none;
+      outline:none;
+      background:#f1f1f1;
+      border-radius:30px;
+      font-size:15px;
+      }
+
+    .search-box i{
+      position:absolute;
+      right:18px;
+      top:50%;
+      transform:translateY(-50%);
+      font-size:20px;
+      cursor:pointer;
+      }
+
+    .slider{
+      width:100%;
+      height:500px;
+      overflow:hidden;
+      }
+
+    .slider img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      }
+
+    .modal{
+      display:none;
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      background:rgba(0,0,0,0.5);
+      justify-content:center;
+      align-items:center;
+      z-index:999;
+      }
+
+    .modal-box{
+      width:400px;
+      background:#fff;
+      padding:35px;
+      border-radius:10px;
+      position:relative;
+      }
+
+    .close-btn{
+      position:absolute;
+      top:15px;
+      right:18px;
+      font-size:24px;
+      cursor:pointer;
+      }
+
+    .modal-box h2{
+      margin-bottom:25px;
+      text-align:center;
+      color:#111;
+      }
+
+    .form-box{
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+      }
+
+    .form-box input{
+      padding:14px;
+      border:1px solid #ccc;
+      outline:none;
+      font-size:15px;
+      border-radius:5px;
+      }
+
+    .form-box button{
+      padding:14px;
+      border:none;
+      background:#111;
+      color:#fff;
+      font-size:16px;
+      cursor:pointer;
+      border-radius:5px;
+      transition:0.3s;
+      }
+
+    .form-box button:hover{
+      background:#c79a3b;
+      }
+
+    .switch-text{
+      text-align:center;
+      margin-top:15px;
+      font-size:14px;
+      }
+
+    .switch-text span{
+      color:#c79a3b;
+      cursor:pointer;
+      font-weight:bold;
+      }
+  
+    body {
+      background-color: #fdf9f9;
+      font-family:sans-serif;
+      }
+
+    h1 {
+      color: rgb(238, 238, 241);
+      font-family:'Cinzel',serif;
+      text-align: center;
+      margin-top: 20px;
+      background-color:#000d11;
+      }
+
+    p {
+      color: rgb(224, 177, 48);
+      font-family:'Cinzel',serif;
+      font-size: 20px;
+      text-align: center;
+      background-color: rgb(128, 214, 186);
+      }
+
+    button {
+      background-color: black;
+      color: white;
+      padding: 10px;
+      margin: 10px;
+      border: none;
+      cursor: pointer;
+      }
+
+    button:hover {
+      background-color: darkgray;
+      }
+
+    .navbar{
+      width:100%;
+      background:rgb(248, 250, 252);
+      padding:18px 60px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border-bottom:1px solid #e5e5e5;
+      } 
+
+    .menu{
+      display:flex;
+      gap:35px;
+      align-items:center;
+      }
+
+    .menu a{
+      text-decoration:none;
+      font-family:'Cinzel',serif;
+      color:#050505;
+      font-size:17px;
+      transition:0.3s;
+      }
+
+    .menu a:hover{
+      color:#c79a3b;
+      }
+       
+    .brands{
+      background:#111;
+      padding:70px 50px;
+      text-align:center;
+      }
+
+    .brand-container{
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:50px;
+      } 
+
+    .brand-container h2{
+      color:#fff;
+      font-size:35px;
+      letter-spacing:2px;
+      transition:0.3s;
+      }
+
+    .brand-container h2:hover{
+      color:#d4af37;
+      transform:scale(1.1);
+      }
+
+    .products{
+      display:flex;
+      justify-content:center;
+      gap:40px;
+      flex-wrap:wrap;
+      padding:60px 40px;
+      background:#fff;
+      }
+
+    .product-card{
+      width:280px;
+      background:#f9f9f9;
+      border-radius:10px;
+      overflow:hidden;
+      box-shadow:0 5px 15px rgba(0,0,0,0.1);
+      text-align:center;
+      transition:0.3s;
+      }
+
+    .product-card:hover{
+      transform:translateY(-10px);
+       }
+
+    .product-card img{
+      width:100%;
+      height:250px;
+      object-fit:cover;
+      }
+
+    .product-card h3{
+      margin-top:15px;
+      font-size:24px;
+      color:#111;
+      }
+
+    .product-card p{
+      background:none;
+      color:#c79a3b;
+      font-size:22px;
+      margin:10px 0;
+      }
+
+    .product-card button{
+      margin-bottom:20px;
+      padding:12px 20px;
+      background:#111;
+      color:#fff;
+      border:none;
+      cursor:pointer;
+      border-radius:5px;
+      transition:0.3s;
+      }
+
+    .product-card button:hover{
+      background:#c79a3b;
+      }
+
+    .cart-box{
+      width:90%;
+      max-width:500px;
+      margin:40px auto;
+      background:#fff;
+      padding:30px;
+      border-radius:10px;
+      box-shadow:0 5px 15px rgba(0,0,0,0.1);
+      font-family: 'cinzel',serif;
+      }
+
+    .cart-box h2{
+      margin-bottom:20px;
+      text-align:center;
+      }
+
+    .cart-box ul{
+      list-style:none;
+      margin-bottom:20px;
+      }
+
+    .cart-box li{
+      display:flex;
+      justify-content:space-between;
+      margin-bottom:12px;
+      padding-bottom:10px;
+      border-bottom:1px solid #ddd;
+      }
+
+    #total{
+      text-align:right;
+      color:#c79a3b;
+      }
+
+    .cart-icon{
+      position:relative;
+      cursor:pointer;
+      }
+
+    #cart-count{
+      position:absolute;
+      top:-8px;
+      right:-10px;
+      background:#d4af37;
+      color:#fff;
+      font-size:12px;
+      width:20px;
+      height:20px;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:bold;
+      }
+  </style>
+</head>
+
+<body>
+
+  <div class="top-bar">
+
+    <div class="top-left">
+      <a href="#">
+        <i class="ri-map-pin-line"></i> Stores
+      </a>
+
+      <a href="#">
+        <i class="ri-phone-line"></i> Contact Us
+      </a>
+    </div>
+
+    <div class="logo">
+      Luxury Watches
+    </div>
+
+    <div class="top-icons">
+
+      <!-- LOGIN ICON -->
+      <i class="ri-user-line" id="openModal"></i>
+
+      <i class="ri-heart-line"></i>
+      <div class="cart-icon">
+      <i class="ri-shopping-bag-line"></i>
+      <span id="cart-count">0</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="navbar">
+
+    <div class="menu">
+      <a href="#">All Watches</a>
+      <a href="#">Men</a>
+      <a href="#">Women</a>
+      <a href="#">Smart</a>
+      <a href="#">Brands</a>
+      <a href="#">Offers</a>
+    </div>
+
+    <div class="search-box">
+      <input type="text" placeholder="Search entire store here...">
+      <i class="ri-search-line"></i>
+    </div>
+
+  </div>
+
+  <div class="slider">
+    <img src="https://i.pinimg.com/736x/1b/20/75/1b20752a3e8b29d1e20190d598f956c4.jpg" alt="slider image">
+  </div>
+
+  <div class="modal" id="modal">
+
+    <div class="modal-box">
+
+      <span class="close-btn" id="closeModal">&times;</span>
+
+      <div id="loginForm">
+
+        <h2>Login</h2>
+
+        <div class="form-box">
+          <input type="email" placeholder="Enter Email">
+          <input type="password" placeholder="Enter Password">
+
+          <button>Login</button>
+        </div>
+
+        <div class="switch-text">
+          Don't have an account?
+          <span id="showSignup">Create Account</span>
+        </div>
+
+      </div>
+
+      <div id="signupForm" style="display:none;">
+
+        <h2>Create Account</h2>
+
+        <div class="form-box">
+          <input type="text" placeholder="Full Name">
+          <input type="email" placeholder="Enter Email">
+          <input type="password" placeholder="Create Password">
+
+          <button>Create Account</button>
+        </div>
+
+        <div class="switch-text">
+          Already have an account?
+          <span id="showLogin">Login</span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+    <script>
+
+      const modal = document.getElementById("modal");
+      const openModal = document.getElementById("openModal");
+      const closeModal = document.getElementById("closeModal");
+
+      const loginForm = document.getElementById("loginForm");
+      const signupForm = document.getElementById("signupForm");
+
+      const showSignup = document.getElementById("showSignup");
+      const showLogin = document.getElementById("showLogin");
+
+      openModal.onclick = () => {
+      modal.style.display = "flex";
+      };
+
+      closeModal.onclick = () => {
+      modal.style.display = "none";
+      };
+
+      window.onclick = (e) => {
+      if(e.target === modal){
+      modal.style.display = "none";
+      }
+      };
+
+      showSignup.onclick = () => {
+      loginForm.style.display = "none";
+      signupForm.style.display = "block";
+      };
+
+      showLogin.onclick = () => {
+      signupForm.style.display = "none";
+      loginForm.style.display = "block";
+      };
+
+      let total = 0;
+      let cartCount = 0;
+ 
+      function addToCart(name, price) {
+
+      total += price;
+      cartCount++;
+
+      document.getElementById("cart-count").innerText = cartCount;
+
+      alert(name + " added to cart!");
+      }
+
+      function buyNow(name, price) {
+      alert("Proceeding to buy " + name + " for ₹" + price);
+      }
+    </script>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+
+    <header>
+        <h1 style="border: 2px solid rgb(247, 244, 244); padding: 10px;">NEW ARRIVALS</h1>
+        <p style="background-color: #eee; padding: 5px;">
+       Premium watches for modern lifestyle
+        </p>
+    </header>
+
+    <section class="brands">
+
+     <div class="brand-container">
+
+        <h2>ROLEX</h2>
+        <h2>OMEGA</h2>
+        <h2>FOSSIL</h2>
+        <h2>TITAN</h2>
+        <h2>CASIO</h2>
+
+     </div>
+
+    </section>
+    <section class="products">
+
+    <div class="product-card">
+     <img src="https://images.unsplash.com/photo-1617043786394-1a6f4a9b3b2d?q=80&w=800" alt="Titan smartwatch">
+
+     <h3>Titan Smart Pro</h3>
+     <p>₹18,999</p>
+
+     <button onclick="addToCart('Titan Smart Pro',18999)">
+     Add To Cart
+     </button>
+     <button class="buy-btn" onclick="buyNow('Titan Smart Pro',18999)">
+     Buy Now
+     </button>
+    </div>
+
+    <div class="product-card">
+     <img src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?q=80&w=800" alt="watch">
+
+     <h3>Omega Classic</h3>
+     <p>₹38,000</p>
+
+     <button onclick="addToCart('Omega Classic',38000)">
+      Add To Cart
+     </button>
+     <button onclick="buynow('Omega Classic',38000)">
+      Buy now
+     </button>
+   </div>
+
+   <div class="product-card">
+     <img src="https://images.unsplash.com/photo-1434056886845-dac89ffe9b56?q=80&w=800" alt="watch">
+
+     <h3>Fossil Smart</h3>
+     <p>₹18,000</p>
+
+     <button onclick="addToCart('Fossil Smart',18000)">
+      Add To Cart
+     </button>
+      <button onclick="buynow('Fossil Smart',18000)">
+      Buy now
+     </button>
+    </div>
+    
+   <div class="product-card">
+     <img src="https://images.unsplash.com/photo-1524805444758-089113d48a6d?q=80&w=800" alt="watch">
+
+     <h3>Titan Elite</h3>
+     <p>₹22,000</p>
+
+     <button onclick="addToCart('Titan Elite',22000)">
+      Add To Cart
+     </button>
+     <button onclick="buyNow('Titan Elite',22000)">
+      Buy Now
+     </button>
+    </div>
+
+    <div class="product-card">
+     <img src="https://images.unsplash.com/photo-1508057198894-247b23fe5ade?q=80&w=800" alt="watch">
+
+     <h3>Casio G-Shock</h3>
+     <p>₹15,000</p>
+
+     <button onclick="addToCart('Casio G-Shock',15000)">
+      Add To Cart
+     </button>
+
+     <button class="buy-btn" onclick="buyNow('Casio G-Shock',15000)">
+      Buy Now
+     </button>
+    </div>
+
+    <div class="product-card">
+     <img src="https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/s10-case-unselect-gallery-1-202503_GEO_IN_FMT_WHH?wid=752&hei=720&fmt=p-jpg&qlt=80&.v=1738366612779" alt="Apple Smart Watch">
+
+     <h3>Apple Smart Watch</h3>
+     <p>₹55,000</p>
+
+     <button onclick="addToCart('Apple Smart Watch',55000)">
+      Add To Cart
+     </button>
+
+     <button class="buy-btn" onclick="buyNow('Apple Smart Watch',55000)">
+      Buy Now
+     </button>
+    </div>
+
+    <div class="product-card">
+     <img src="https://images.unsplash.com/photo-1490367532201-b9bc1dc483f6?q=80&w=800" alt="watch">
+
+     <h3>Titan Neo</h3>
+     <p>₹20,000</p>
+
+  
+     <button onclick="addToCart('Titan Neo',20000)">
+      Add To Cart
+     </button>
+
+     <button class="buy-btn" onclick="buyNow('Titan Neo',20000)">
+      Buy Now
+     </button>
+    </div>
+
+    <div class="product-card">
+     <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=800" alt="watch">
+
+     <h3>Seiko Luxury</h3>
+     <p>₹32,000</p>
+
+     <button onclick="addToCart('Seiko Luxury',32000)">
+      Add To Cart
+     </button>
+
+     <button class="buy-btn" onclick="buyNow('Seiko Luxury',32000)">
+      Buy Now
+     </button>
+    </div>
+  </section>
+ 
+</body>
+</html>
