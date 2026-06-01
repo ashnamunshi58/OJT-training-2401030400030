@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdn.tailwindcss.com"></script>
 <style>
 :root{
   --saffron:#FF6200;--saffron2:#FF8C42;--saffron-pale:#FFF4EC;
@@ -337,58 +338,169 @@ footer{background:var(--ink);color:rgba(255,255,255,.6);padding:56px 4% 28px}
 </div>
 
 <!-- HERO -->
-<section class="hero">
-  <div class="hero-bg">
-    <img src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=1600&q=80" alt="Festival crowd">
+<section class="relative min-h-screen overflow-hidden">
+  
+  <!-- Background Image -->
+  <div class="absolute inset-0">
+    <img
+      src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=1600&q=80"
+      alt="Festival crowd"
+      class="w-full h-full object-cover"
+    >
+    <div class="absolute inset-0 bg-black/60"></div>
   </div>
-  <div class="hero-inner">
-    <div class="hero-left">
-      <div class="hero-badge"><div class="badge-dot"></div> India's #1 Festival Platform</div>
-      <h1 class="hero-title">Discover &amp;<br><em>Celebrate</em><br>Near You</h1>
-      <p class="hero-sub">From Navratri nights to sunburn sunsets — explore 12,000+ events, book tickets instantly, and create memories that last forever.</p>
-      <div class="hero-btns">
-        <a href="#events" class="btn btn-primary" style="padding:12px 26px;font-size:15px">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-          Explore Events
-        </a>
-        <a href="#organise" class="btn btn-ghost" style="color:#fff;border-color:rgba(255,255,255,.4);padding:12px 26px;font-size:15px">Host an Event</a>
-      </div>
-      <div class="hero-stats">
-        <div><span class="hero-stat-n">12K+</span><span class="hero-stat-l">Events Listed</span></div>
-        <div><span class="hero-stat-n">4.2M+</span><span class="hero-stat-l">Tickets Sold</span></div>
-        <div><span class="hero-stat-n">800+</span><span class="hero-stat-l">Cities</span></div>
-        <div><span class="hero-stat-n">8K+</span><span class="hero-stat-l">Organisers</span></div>
-      </div>
-    </div>
-    <div class="hero-stack">
-      <div class="h-card h-card-big">
-        <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=600&q=80" alt="Concert">
-        <div class="h-card-overlay"></div>
-        <div class="h-card-body">
-          <div class="h-card-tag">⭐ Featured</div>
-          <div class="h-card-name">Sunburn Festival Goa 2025</div>
-          <div class="h-card-loc">📍 Vagator Beach · Dec 28–30</div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 py-20">
+    
+    <div class="grid lg:grid-cols-2 gap-12 items-center min-h-screen">
+
+      <!-- Left Content -->
+      <div class="text-white">
+
+        <!-- Badge -->
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-sm mb-6">
+          <div class="w-2 h-2 rounded-full bg-green-400"></div>
+          India's #1 Festival Platform
         </div>
+
+        <!-- Title -->
+        <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
+          Discover &amp;<br>
+          <em class="text-orange-400 not-italic">Celebrate</em><br>
+          Near You
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="text-lg text-gray-200 max-w-xl mb-8">
+          From Navratri nights to sunburn sunsets — explore 12,000+ events,
+          book tickets instantly, and create memories that last forever.
+        </p>
+
+        <!-- Buttons -->
+        <div class="flex flex-wrap gap-4 mb-10">
+          
+          <a
+            href="#events"
+            class="inline-flex items-center gap-2 px-6 py-3 bg-orange-500 hover:bg-orange-600 rounded-lg font-medium transition"
+          >
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+            >
+              <circle cx="11" cy="11" r="8"></circle>
+              <path d="m21 21-4.35-4.35"></path>
+            </svg>
+            Explore Events
+          </a>
+
+          <a
+            href="#organise"
+            class="px-6 py-3 border border-white/40 rounded-lg text-white hover:bg-white/10 transition"
+          >
+            Host an Event
+          </a>
+
+        </div>
+
+        <!-- Stats -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+          
+          <div>
+            <span class="block text-2xl font-bold">12K+</span>
+            <span class="text-gray-300 text-sm">Events Listed</span>
+          </div>
+
+          <div>
+            <span class="block text-2xl font-bold">4.2M+</span>
+            <span class="text-gray-300 text-sm">Tickets Sold</span>
+          </div>
+
+          <div>
+            <span class="block text-2xl font-bold">800+</span>
+            <span class="text-gray-300 text-sm">Cities</span>
+          </div>
+
+          <div>
+            <span class="block text-2xl font-bold">8K+</span>
+            <span class="text-gray-300 text-sm">Organisers</span>
+          </div>
+
+        </div>
+
       </div>
-      <div class="h-card-row">
-        <div class="h-card h-card-sm">
-          <img src="https://images.unsplash.com/photo-1568992687947-868a62a9f521?w=400&q=80" alt="Navratri">
-          <div class="h-card-overlay"></div>
-          <div class="h-card-body">
-            <div class="h-card-name">Navratri Mela</div>
-            <div class="h-card-loc">📍 Ahmedabad</div>
+
+      <!-- Right Cards -->
+      <div class="flex flex-col gap-5">
+
+        <!-- Main Card -->
+        <div class="relative rounded-3xl overflow-hidden shadow-2xl">
+          <img
+            src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=600&q=80"
+            alt="Concert"
+            class="w-full h-[420px] object-cover"
+          >
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
+
+          <div class="absolute bottom-6 left-6 text-white">
+            <div class="inline-block px-3 py-1 rounded-full bg-orange-500 text-sm font-medium mb-3">
+              ⭐ Featured
+            </div>
+
+            <h3 class="text-2xl font-bold mb-2">
+              Sunburn Festival Goa 2025
+            </h3>
+
+            <p class="text-gray-200">
+              📍 Vagator Beach · Dec 28–30
+            </p>
           </div>
         </div>
-        <div class="h-card h-card-sm">
-          <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&q=80" alt="Food Festival">
-          <div class="h-card-overlay"></div>
-          <div class="h-card-body">
-            <div class="h-card-name">Street Food Fest</div>
-            <div class="h-card-loc">📍 Delhi</div>
+
+        <!-- Small Cards -->
+        <div class="grid grid-cols-2 gap-5">
+
+          <!-- Card 1 -->
+          <div class="relative rounded-2xl overflow-hidden shadow-lg">
+            <img
+              src="https://images.unsplash.com/photo-1568992687947-868a62a9f521?w=400&q=80"
+              alt="Navratri"
+              class="w-full h-56 object-cover"
+            >
+
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent"></div>
+
+            <div class="absolute bottom-4 left-4 text-white">
+              <h4 class="font-semibold">Navratri Mela</h4>
+              <p class="text-sm text-gray-300">📍 Ahmedabad</p>
+            </div>
           </div>
+
+          <!-- Card 2 -->
+          <div class="relative rounded-2xl overflow-hidden shadow-lg">
+            <img
+              src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&q=80"
+              alt="Food Festival"
+              class="w-full h-56 object-cover"
+            >
+
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent"></div>
+
+            <div class="absolute bottom-4 left-4 text-white">
+              <h4 class="font-semibold">Street Food Fest</h4>
+              <p class="text-sm text-gray-300">📍 Delhi</p>
+            </div>
+          </div>
+
         </div>
+
       </div>
+
     </div>
+
   </div>
 </section>
 
