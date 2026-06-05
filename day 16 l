@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8"/>
+ <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+ <title>Luxury Watches</title>
+
+ <!-- Bootstrap -->
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+ <!-- Remix Icon -->
+ <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+
+ <!-- Google Font -->
+ <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+ <!-- Bootstrap Icons -->
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+ <style>
+
+ body{
+ font-family:'Poppins',sans-serif;
+ background:#f5f5f5;
+ }
+
+ .top-bar{
+ background:#111;
+ }
+
+ .logo{
+ font-family:'Cinzel',serif;
+ color:#d4af37;
+ letter-spacing:3px;
+ font-size:35px;
+ }
+
+ .top-link{
+ color:#fff;
+ text-decoration:none;
+ transition:0.3s;
+ }
+
+ .top-link:hover{
+ color:#d4af37;
+ }
+
+ .icon{
+ font-size:24px;
+ cursor:pointer;
+ transition:0.3s;
+ color:#fff;
+ }
+
+ .icon:hover{
+ color:#d4af37;
+ }
+
+ .navbar-nav .nav-link{
+ font-family:'Cinzel',serif;
+ color:#111;
+ font-size:17px;
+ margin-right:15px;
+ }
+
+ .navbar-nav .nav-link:hover{
+ color:#c79a3b;
+ }
+
+ .search-box{
+ position:relative;
+ }
+
+ .search-box input{
+ border-radius:30px;
+ padding-right:45px;
+ width:250px;
+ }
+
+ .search-box i{
+ position:absolute;
+ right:18px;
+ top:50%;
+ transform:translateY(-50%);
+ }
+
+ .slider img{
+ height:500px;
+ object-fit:cover;
+ }
+
+ .section-title{
+ font-family:'Cinzel',serif;
+ background:#000d11;
+ color:#fff;
+ padding:12px;
+ border-radius:5px;
+ }
+
+ .section-subtitle{
+ color:#c79a3b;
+ font-size:20px;
+ }
+
+ .brands{
+ background:#111;
+ }
+
+ .brand-name{
+ color:#fff;
+ font-family:'Cinzel',serif;
+ transition:0.3s;
+ cursor:pointer;
+ }
+
+ .brand-name:hover{
+ color:#d4af37;
+ transform:scale(1.1);
+ }
+
+ .product-card{
+ border:none;
+ transition:0.3s;
+ border-radius:12px;
+ overflow:hidden;
+ position:relative;
+ }
+
+ .product-card:hover{
+ transform:translateY(-10px);
+ }
+
+ .product-card img{
+ height:250px;
+ object-fit:cover;
+ }
+
+ .price{
+ color:#c79a3b;
+ font-size:22px;
+ font-weight:600;
+ }
+
+ .old-price {
+ text-decoration: line-through;
+ color: #888;
+ font-size: 16px;
+ margin-right: 8px;
+ }
+
+ .offer-badge {
+ background: #dc3545;
+ color: #fff;
+ font-size: 12px;
+ font-weight: 600;
+ padding: 3px 8px;
+ border-radius: 4px;
+ display: inline-block;
+ margin-bottom: 5px;
+ }
+
+ .btn-dark:hover{
+ background:#c79a3b;
+ border-color:#c79a3b;
+ }
+
+ .cart-icon{
+ position:relative;
+ }
+
+ #cart-count,
+ #wishlist-count{
+ position:absolute;
+ top:-8px;
+ right:-10px;
+ background:#d4af37;
+ color:#fff;
+ width:20px;
+ height:20px;
+ border-radius:50%;
+ font-size:12px;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ font-weight:bold;
+ }
+
+ .wishlist-btn{
+ position:absolute;
+ top:12px;
+ right:12px;
+ width:42px;
+ height:42px;
+ border-radius:50%;
+ background:#fff;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ font-size:22px;
+ color:#111;
+ cursor:pointer;
+ transition:0.3s;
+ z-index:10;
+ box-shadow:0 4px 10px rgba(0,0,0,0.2);
+ }
+
+ .wishlist-btn:hover{
+ transform:scale(1.1);
+ }
+
+ .wishlist-btn.active{
+ background:#d4af37;
+ color:#fff;
+ }
+
+ .modal-content{
+ border-radius:20px;
+ border:none;
+ }
+
+ .input-group-text{
+ background:#111;
+ color:#d4af37;
+ border:none;
+ }
+
+ .form-control{
+ border-left:none;
+ }
+
+ .form-control:focus{
+ box-shadow:none;
+ border-color:#d4af37;
+ }
+
+ .payment-option{
+ border:2px solid #ddd;
+ border-radius:15px;
+ padding:15px;
+ cursor:pointer;
+ transition:0.3s;
+ }
+
+ .payment-option:hover{
+ border-color:#d4af37;
+ background:#fffaf0;
+ }
+
+ .payment-option input{
+ margin-right:10px;
+ }
+
+ </style>
+</head>
+
+<body>
+<div class="top-bar py-3">
+ <div class="container">
+ <div class="row align-items-center">
+
+ <div class="col-md-4 d-flex gap-4">
+ <a href="#" class="top-link">
+ <i class="ri-map-pin-line"></i> Stores
+ </a>
+ </div>
+
+ <div class="col-md-4 text-center">
+ <h2 class="logo m-0">Luxury Watches</h2>
+ </div>
+
+ <div class="col-md-4 d-flex justify-content-end gap-4">
+
+ <i class="ri-user-line icon" data-bs-toggle="modal" data-bs-target="#authModal"></i>
+
+ <div class="wishlist-top position-relative" data-bs-toggle="modal" data-bs-target="#wishlistModal" style="cursor: pointer;">
+ <i class="ri-heart-line icon"></i>
+ <span id="wishlist-count">0</span>
+ </div>
+
+ <div class="cart-icon" data-bs-toggle="modal" data-bs-target="#cartModal" style="cursor: pointer;">
+ <i class="ri-shopping-bag-line icon"></i>
+ <span id="cart-count">0</span>
+ </div>
+
+ </div>
+ </div>
+ </div>
+</div>
+
+<nav class="navbar navbar-expand-lg bg-light shadow-sm">
+ <div class="container">
+
+ <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+ <span class="navbar-toggler-icon"></span>
+ </button>
+
+ <div class="collapse navbar-collapse" id="navbarMenu">
+
+ <ul class="navbar-nav mx-auto">
+
+ <li class="nav-item">
+ <a class="nav-link" href="#" onclick="filterCategory('all', event)">All Watches</a>
+ </li>
+
+ <li class="nav-item">
+ <a class="nav-link" href="#" onclick="filterCategory('men', event)">Men</a>
+ </li>
+
+ <li class="nav-item">
+ <a class="nav-link" href="#" onclick="filterCategory('women', event)">Women</a>
+ </li>
+
+ <li class="nav-item">
+ <a class="nav-link" href="#" onclick="filterCategory('smart', event)">Smart</a>
+ </li>
+
+ <li class="nav-item">
+ <a class="nav-link" href="#" onclick="filterCategory('brands', event)">Brands</a>
+ </li>
+
+ <li class="nav-item">
+ <a class="nav-link" href="#" onclick="filterCategory('offers', event)">Offers</a>
+ </li>
+
+ </ul>
+
+ <div class="search-box">
+ <input type="text" id="watchSearch" class="form-control" placeholder="Search brands, collections..." oninput="searchWatches()">
+ <i class="ri-search-line"></i>
+ </div>
+
+ </div>
+ </div>
+</nav>
+
+<div id="watchSlider" class="carousel slide slider" data-bs-ride="carousel">
+
+ <div class="carousel-inner">
+ <div class="carousel-item active">
+ <img src="https://i.postimg.cc/9fmJBqQb/bc619de1-f7d5-4411-8865-77f992cceee5-titan.png" class="d-block w-100" alt="Luxury Hero Banner 1">
+ </div>
+ </div>
+
+</div>
+
+<div class="modal fade" id="authModal">
+ <div class="modal-dialog modal-dialog-centered">
+
+ <div class="modal-content p-3">
+
+ <div class="modal-header border-0">
+ <h4 class="modal-title fw-bold">Login or Create Account?</h4>
+ <button class="btn-close" data-bs-dismiss="modal"></button>
+ </div>
+
+ <div class="modal-body">
+
+ <div id="loginForm">
+
+ <div class="mb-3 input-group">
+ <span class="input-group-text">
+ <i class="bi bi-envelope-fill"></i>
+ </span>
+ <input type="email" class="form-control" placeholder="Enter Email">
+ </div>
+
+ <div class="mb-3 input-group">
+
+ <span class="input-group-text">
+ <i class="bi bi-lock-fill"></i>
+ </span>
+ <input type="password" class="form-control" placeholder="Enter Password">
+ </div>
+
+ <button class="btn btn-dark w-100 py-2">
+ Login
+ </button>
+
+ <p class="text-center mt-3">
+ Don't have an account?
+
+ <span class="text-warning fw-bold"
+ role="button"
+ onclick="showSignup()">
+ Create Account
+ </span>
+ </p>
+ </div>
+
+ <div id="signupForm" style="display:none;">
+
+ <div class="mb-3 input-group">
+ <span class="input-group-text">
+ <i class="bi bi-person-fill"></i>
+ </span>
+ <input type="text" class="form-control" placeholder="Full Name">
+ </div>
+
+ <div class="mb-3 input-group">
+ <span class="input-group-text">
+ <i class="bi bi-envelope-fill"></i>
+ </span>
+ <input type="email" class="form-control" placeholder="Enter Email">
+ </div>
+
+ <div class="mb-3 input-group">
+ <span class="input-group-text">
+ <i class="bi bi-lock-fill"></i>
+ </span>
+ <input type="password" class="form-control" placeholder="Create Password">
+ </div>
+
+ <button class="btn btn-dark w-100 py-2">
+ Create Account
+ </button>
+
+ <p class="text-center mt-3">
+ Already have an account?
+
+ <span class="text-warning fw-bold"
+ role="button"
+ onclick="showLogin()">
+ Login
+ </span>
+ </p>
+ </div>
+ </div>
+ </div>
+ </div>
+</div>
+
+<section class="py-5 text-center">
+
+ <div class="container">
+ <h1 class="section-title" id="currentSectionTitle">NEW ARRIVALS</h1>
+ <p class="section-subtitle mt-3">
+ Premium watches for modern lifestyle
+ </p>
+ </div>
+</section>
+
+<section class="brands py-5">
+
+ <div class="container">
+ <div class="row text-center g-4">
+
+ <div class="col-md-2 col-6">
+ <h2 class="brand-name" onclick="filterBrand('ROLEX')">ROLEX</h2>
+ </div>
+
+ <div class="col-md-2 col-6">
+ <h2 class="brand-name" onclick="filterBrand('OMEGA')">OMEGA</h2>
+ </div>
+
+ <div class="col-md-2 col-6">
+ <h2 class="brand-name" onclick="filterBrand('FOSSIL')">FOSSIL</h2>
+ </div>
+
+ <div class="col-md-2 col-6">
+ <h2 class="brand-name" onclick="filterBrand('TITAN')">TITAN</h2>
+ </div>
+
+ <div class="col-md-2 col-6">
+ <h2 class="brand-name" onclick="filterBrand('CASIO')">CASIO</h2>
+ </div>
+ </div>
+ </div>
+</section>
+
+<section class="py-5">
+
+ <div class="container">
+
+ <div class="row g-4" id="watchContainer">
+ <!-- Watches will load dynamically via JavaScript -->
+ </div>
+
+ <!-- View More Button Container -->
+ <div class="text-center mt-5" id="viewMoreContainer">
+ <button class="btn btn-outline-dark px-4 py-2" onclick="loadMoreWatches()">View More</button>
+ </div>
+
+ </div>
+ 
+</section>
+
+<!-- Wishlist Modal -->
+<div class="modal fade" id="wishlistModal" tabindex="-1" aria-hidden="true">
+ <div class="modal-dialog modal-md modal-dialog-centered">
+ <div class="modal-content">
+ <div class="modal-header bg-dark text-white">
+ <h5 class="modal-title"><i class="ri-heart-fill text-warning me-2"></i>My Wishlist</h5>
+ <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+ </div>
+ <div class="modal-body" id="wishlistModalBody">
+ <!-- Wishlist Content Appends Here -->
+ </div>
+ </div>
+ </div>
+</div>
+
+<!-- Cart Modal -->
+<div class="modal fade" id="cartModal" tabindex="-1" aria-hidden="true">
+ <div class="modal-dialog modal-md modal-dialog-centered">
+ <div class="modal-content">
+ <div class="modal-header bg-dark text-white">
+ <h5 class="modal-title"><i class="ri-shopping-bag-line text-warning me-2"></i>My Shopping Cart</h5>
+ <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+ </div>
+ <div class="modal-body" id="cartModalBody">
+ <!-- Cart Content Appends Here -->
+ </div>
+ </div>
+ </div>
+</div>
+
+<div class="modal fade" id="paymentModal">
+
+ <div class="modal-dialog modal-xl modal-dialog-centered">
+ <div class="modal-content">
+
+ <div class="modal-header bg-dark text-white">
+ <h3 class="modal-title">Secure Checkout</h3>
+ <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+ </div>
+
+ <div class="modal-body p-4 bg-light">
+ <form id="checkoutForm" class="needs-validation" novalidate onsubmit="event.preventDefault();">
+ <div class="row g-4">
+
+ <div class="col-lg-4">
+
+ <div class="bg-white rounded-4 shadow-sm p-4 h-100">
+ <img id="productImage"
+ src=""
+ class="img-fluid rounded-4 mb-4"
+ style="height:300px;width:100%;object-fit:cover;">
+
+ <h3 id="productName"></h3>
+ <div class="d-flex align-items-center mt-3">
+ <span id="productOldPrice" class="old-price d-none"></span>
+ <h4 class="price m-0" id="productPrice"></h4>
+ </div>
+ <div id="checkoutOfferBadge" class="mt-2"></div>
+
+ <hr>
+
+ <div class="d-flex justify-content-between">
+ <span>Delivery</span>
+ <span class="text-success">FREE</span>
+ </div>
+
+ <div class="d-flex justify-content-between mt-2">
+ <span>GST</span>
+ <span>Included</span>
+ </div>
+
+ <div id="discountRow" class="d-flex justify-content-between mt-2 text-danger d-none">
+ <span>Promotional Discount</span>
+ <span id="discountAmount"></span>
+ </div>
+
+ <hr>
+
+ <div class="d-flex justify-content-between fw-bold fs-5">
+ <span>Total</span>
+ <span id="totalPrice" class="text-warning"></span>
+ </div>
+ </div>
+ </div>
+
+ <div class="col-lg-8">
+ <div class="bg-white rounded-4 shadow-sm p-4">
+
+ <h4 class="fw-bold mb-4">Contact Details</h4>
+
+ <div class="row g-3">
+
+ <div class="col-md-6">
+ <label class="form-label">Full Name</label>
+ <input type="text" id="payName" class="form-control" placeholder="Enter Full Name" required>
+ <div class="invalid-feedback">Please enter your full name.</div>
+ </div>
+
+ <div class="col-md-6">
+ <label class="form-label">Email Address</label>
+ <input type="email" id="payEmail" class="form-control" placeholder="Enter Email" required>
+ <div class="invalid-feedback">Please enter a valid email address.</div>
+ </div>
+
+ <div class="col-md-6">
+ <label class="form-label">Phone Number</label>
+ <input type="tel" id="payPhone" class="form-control" placeholder="9876543210" pattern="[0-9]{10}" required>
+ <div class="invalid-feedback">Please enter a valid 10-digit phone number.</div>
+ </div>
+
+ </div>
+
+ <h4 class="fw-bold mt-5 mb-4">Delivery Details</h4>
+ <div class="row g-3">
+
+ <div class="col-12">
+ <label class="form-label">Street Address</label>
+ <input type="text" id="payAddress" class="form-control" placeholder="House No, Street Name" required>
+ <div class="invalid-feedback">Street address is required.</div>
+ </div>
+
+ <div class="col-md-4">
+ <label class="form-label">City</label>
+ <input type="text" id="payCity" class="form-control" placeholder="Ahmedabad" required>
+ <div class="invalid-feedback">Please enter your city.</div>
+ </div>
+
+ <div class="col-md-4">
+ <label class="form-label">State</label>
+ <input type="text" id="payState" class="form-control" placeholder="Gujarat" required>
+ <div class="invalid-feedback">Please enter your state.</div>
+ </div>
+
+ <div class="col-md-4">
+ <label class="form-label">PIN Code</label>
+ <input type="text" id="payPin" class="form-control" placeholder="380001" pattern="[0-9]{6}" required>
+ <div class="invalid-feedback">Please enter a valid 6-digit PIN code.</div>
+ </div>
+
+ </div>
+
+ <h4 class="fw-bold mt-5 mb-4">Payment Options</h4>
+ <div class="row g-3">
+
+ <div class="col-md-4">
+ <label class="payment-option w-100">
+ <input type="radio" name="payment" checked>
+ <i class="bi bi-google"></i>
+ Google Pay
+ </label>
+ </div>
+
+ <div class="col-md-4">
+ <label class="payment-option w-100">
+ <input type="radio" name="payment">
+ <i class="bi bi-wallet2"></i>
+ Paytm
+ </label>
+ </div>
+
+ <div class="col-md-4">
+ <label class="payment-option w-100">
+ <input type="radio" name="payment">
+ <i class="bi bi-cash"></i>
+ Cash On Delivery
+ </label>
+ </div>
+ </div>
+
+ <button class="btn btn-dark w-100 py-3 rounded-pill mt-5 fw-bold"
+ onclick="validatePaymentForm()">
+ <i class="bi bi-shield-lock-fill me-2"></i>
+ Confirm & Pay Securely
+ </button>
+ </div>
+ </div>
+ </div>
+ </form>
+ </div>
+ </div>
+ </div>
+</div>
+
+<section class="py-5" style="background:#f8f9fa;">
+ <div class="container">
+ <div class="text-center mb-5">
+ <h6 class="text-warning fw-bold">
+ LUXURY EXPERIENCE
+ </h6>
+
+ <h1 style="font-family:'Cinzel',serif; font-size:50px;">
+ About Our Brand
+ </h1>
+
+ <p class="text-muted">
+ Discover elegance, precision, and timeless craftsmanship.
+ </p>
+ </div>
+ </div>
+</section>
+
+<section class="py-3 bg-dark text-light">
+ <div class="container">
+ <div class="text-center mb-3">
+
+ <h6 class="text-warning fw-bold mb-1" style="font-size:13px;">
+ GET IN TOUCH
+ </h6>
+
+ <h2 style="font-family:'Cinzel',serif; font-size:32px;">
+ Contact Us
+ </h2>
+ </div>
+
+ <div class="row g-3 justify-content-center">
+ <div class="col-md-3 col-6">
+ <div class="bg-black p-3 rounded-3 shadow-sm text-center">
+ <i class="ri-phone-line text-warning"
+ style="font-size:35px;"></i>
+ <h6 class="mt-2 mb-1">Phone</h6>
+
+ <p class="text-secondary small m-0">
+ +91 98765 43210
+ </p>
+ </div>
+ </div>
+
+ <div class="col-md-3 col-6">
+ <div class="bg-black p-3 rounded-3 shadow-sm text-center">
+ <i class="ri-mail-line text-warning"
+ style="font-size:35px;"></i>
+
+ <h6 class="mt-2 mb-1">Email</h6>
+
+ <p class="text-secondary small m-0">
+ luxurywatches@gmail.com
+ </p>
+ </div>
+ </div>
+
+ <div class="col-md-3 col-6">
+ <div class="bg-black p-3 rounded-3 shadow-sm text-center">
+ <i class="ri-map-pin-line text-warning"
+ style="font-size:35px;"></i>
+
+ <h6 class="mt-2 mb-1">Location</h6>
+
+ <p class="text-secondary small m-0">
+ CG Road, Ahmedabad, Gujarat
+ </p>
+ </div>
+ </div>
+ </div>
+ </div>
+</section>
+
+<footer class="bg-black text-light py-4 mt-5">
+ <div class="container">
+ <div class="row align-items-center">
+ <div class="col-md-6">
+ <h2 class="logo">Luxury Watches</h2>
+ <p class="text-secondary">
+ Luxury watches crafted for timeless elegance.
+ </p>
+ </div>
+
+ <div class="col-md-6 text-md-end mt-4 mt-md-0">
+ <a href="#" class="text-warning me-3 fs-3">
+ <i class="ri-instagram-fill"></i>
+ </a>
+
+ <a href="#" class="text-warning me-3 fs-3">
+ <i class="ri-twitter-x-fill"></i>
+ </a>
+
+ <a href="#" class="text-warning fs-3">
+ <i class="ri-youtube-fill"></i>
+ </a>
+ </div>
+ </div>
+
+ <hr class="border-secondary">
+
+ <div class="text-center text-secondary">
+ © 2026 Luxury Watches. All rights reserved.
+ </div> 
+</div>
+</footer>
+
+<script>
+
+ const allWatchesDataset = [
+ { id: 1, name: 'Titan Smart Pro', price: 18999, image: 'https://i.postimg.cc/jSfxcGB0/Chat-GPT-Image-Jun-5-2026-08-43-30-PM.png', categories: ['all', 'smart', 'women','men','brands'], brand: 'TITAN', offer: false },
+ { id: 2, name: 'Omega Classic', price: 38000, image: 'https://i.postimg.cc/Zn1RKZXT/oc1.jpg', categories: ['all', 'men', 'brands'], brand: 'OMEGA', offer: false },
+ { id: 3, name: 'Fossil Minimalist', price: 18000, originalPrice: 24000, offerText: 'Save 25%', image: 'https://images.unsplash.com/photo-1542496658-e33a6d0d50f6?q=80&w=800&auto=format&fit=crop', categories: ['all', 'men', 'brands'], brand: 'FOSSIL', offer: true },
+ { id: 4, name: 'Tissot Excellence', price: 47000, image: 'https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?q=80&w=800&auto=format&fit=crop', categories: ['all', 'men'], brand: 'TISSOT', offer: false },
+ { id: 5, name: 'Rado Gold', price: 87000, originalPrice: 108750, offerText: 'Save 20%', image: 'https://i.postimg.cc/2SNQ0f3R/Chat-GPT-Image-Jun-5-2026-09-17-31-PM.png', categories: ['all', 'women', 'brands'], brand: 'RADO', offer: true },
+ { id: 6, name: 'Apple Watch Ultra', price: 55000, image: 'https://i.postimg.cc/jSRXsbTX/awu.jpg', categories: ['all','men', 'women','smart'], brand: 'APPLE', offer: false },
+ { id: 7, name: 'Titan Neo', price: 55000, image: 'https://i.postimg.cc/Vv6wyT6f/Chat-GPT-Image-Jun-5-2026-09-23-47-PM.png', categories: ['all', 'women', 'brands'], brand: 'TITAN', offer: false },
+ { id: 8,name: 'Rolex Submariner', price: 750000, image: 'https://images.unsplash.com/photo-1547996160-81dfa63595aa?q=80&w=800&auto=format&fit=crop', categories: ['all', 'men', 'brands'], brand: 'ROLEX', offer: false }
+ ];
+
+ const viewMoreDataset = [
+ { id: 9,name: 'Kenneth Cole Rose Gold', price: 32000, originalPrice: 40000, offerText: 'Save 20%', image: 'https://i.postimg.cc/P5KBHygJ/kgw.jpg', categories: ['all', 'women'], brand: 'KENNETH COLE', offer: true },
+ { id: 10, name: 'Casio Vintage Digital', price: 5995, originalPrice: 8560, offerText: 'Save 30%', image: 'https://i.postimg.cc/JhZZJYR0/cvd.jpg', categories: ['all', 'women', 'brands'], brand: 'CASIO', offer: true },
+ { id: 11, name: 'omega seamaster', price: 420000, image: 'https://i.postimg.cc/fW2t3Qxw/osm.jpg', categories: ['all', 'men', 'brands'], brand: 'OMEGA', offer: false },
+ { id: 12, name: 'Fossil Smart Gen 6', price: 24995, image: 'https://i.postimg.cc/BnGqbmwf/fsg6.jpg', categories: ['all', 'smart', 'brands'], brand: 'FOSSIL', offer: false }
+ ];
+ 
+ let masterWatches = [...allWatchesDataset];
+ let currentFilter = 'all';
+ let currentBrandFilter = null;
+ let searchKeyword = '';
+
+ let cart = [];
+ let wishlist = [];
+
+ document.addEventListener("DOMContentLoaded", () => {
+ renderWatches();
+ });
+
+ function renderWatches() {
+ const container = document.getElementById("watchContainer");
+ container.innerHTML = "";
+
+ let filteredList = masterWatches.filter(watch => {
+ if (searchKeyword !== '') {
+ if (searchKeyword.includes('men collection') || searchKeyword === 'men') {
+ return watch.categories.includes('men');
+ }
+ if (searchKeyword.includes('women collection') || searchKeyword === 'women') {
+ return watch.categories.includes('women');
+ }
+ if (searchKeyword.includes('smart collection') || searchKeyword === 'smart') {
+ return watch.categories.includes('smart');
+ }
+ if (searchKeyword.includes('offer')) {
+ return watch.offer === true;
+ }
+
+ if (watch.brand.toLowerCase() === searchKeyword) {
+ return true;
+ }
+
+ return watch.name.toLowerCase().includes(searchKeyword);
+ }
+ 
+ if (currentBrandFilter) {
+ return watch.brand.toUpperCase() === currentBrandFilter.toUpperCase();
+ }
+ if (currentFilter === 'all') return true;
+ if (currentFilter === 'offers') return watch.offer === true;
+ return watch.categories.includes(currentFilter);
+ });
+
+ if (filteredList.length === 0) {
+ container.innerHTML = `<div class="col-12 text-center my-5"><p class="text-muted fs-5">No watches found matching criteria.</p></div>`;
+ return;
+ }
+
+ filteredList.forEach(watch => {
+ const isWishlisted = wishlist.some(item => item.id === watch.id);
+ const wishlistClass = isWishlisted ? "wishlist-btn active" : "wishlist-btn";
+ const wishlistIcon = isWishlisted ? "ri-heart-fill" : "ri-heart-line";
+
+ let priceDisplayHtml = `<p class="price">₹${watch.price.toLocaleString('en-IN')}</p>`;
+ let badgeHtml = '';
+ 
+ if(watch.offer && watch.originalPrice) {
+ badgeHtml = `<div class="offer-badge"><i class="bi bi-tag-fill me-1"></i>${watch.offerText}</div>`;
+ priceDisplayHtml = `
+ <p class="price">
+ <span class="old-price">₹${watch.originalPrice.toLocaleString('en-IN')}</span>
+ <span>₹${watch.price.toLocaleString('en-IN')}</span>
+ </p>
+ `;
+ }
+
+ const cardHtml = `
+ <div class="col-lg-3 col-md-6">
+ <div class="card product-card shadow-sm h-100">
+ <img src="${watch.image}" class="card-img-top" alt="${watch.name}">
+ <div class="${wishlistClass}" onclick="toggleWishlistState(${watch.id})">
+ <i class="${wishlistIcon}"></i>
+ </div>
+ <div class="card-body text-center">
+ ${badgeHtml}
+ <h4>${watch.name}</h4>
+ ${priceDisplayHtml}
+ <button class="btn btn-dark me-2" onclick="addToCart('${watch.name}', ${watch.price}, ${watch.id})">
+ Add To Cart
+ </button>
+ <button class="btn btn-warning" onclick="openPayment(${watch.id})">
+ Buy Now
+ </button>
+ </div>
+ </div>
+ </div>
+ `;
+ container.innerHTML += cardHtml;
+ });
+ }
+
+ function filterCategory(category, event) {
+ if(event) event.preventDefault();
+ currentFilter = category;
+ currentBrandFilter = null;
+ searchKeyword = '';
+ document.getElementById("watchSearch").value = '';
+ 
+ const headings = {
+ all: 'ALL WATCHES COLLECTION',
+ men: 'MEN\'S PREMIUM COLLECTION',
+ women: 'WOMEN\'S LUXURY COLLECTION',
+ smart: 'SMART EXCLUSIVES',
+ brands: 'BRAND PARTNERS',
+ offers: 'SPECIAL PROMOTIONAL OFFERS'
+ };
+ document.getElementById("currentSectionTitle").innerText = headings[category] || 'COLLECTION';
+ 
+ if (category === 'all') {
+ document.getElementById("viewMoreContainer").style.display = "block";
+ } else {
+ document.getElementById("viewMoreContainer").style.display = "none";
+ }
+
+ renderWatches();
+ }
+
+ function filterBrand(brandName) {
+ currentBrandFilter = brandName;
+ currentFilter = null;
+ searchKeyword = '';
+ document.getElementById("watchSearch").value = '';
+ document.getElementById("currentSectionTitle").innerText = brandName.toUpperCase() + " SHOWCASE";
+ document.getElementById("viewMoreContainer").style.display = "none";
+ renderWatches();
+ }
+
+ function searchWatches() {
+ searchKeyword = document.getElementById("watchSearch").value.trim().toLowerCase();
+ 
+ if (searchKeyword !== "") {
+ document.getElementById("currentSectionTitle").innerText = "SEARCH RESULTS FOR: " + searchKeyword.toUpperCase();
+ document.getElementById("viewMoreContainer").style.display = "none";
+ } else {
+ document.getElementById("currentSectionTitle").innerText = "NEW ARRIVALS";
+ document.getElementById("viewMoreContainer").style.display = "block";
+ }
+ 
+ renderWatches();
+ }
+
+ function loadMoreWatches() {
+ const uniqueMore = viewMoreDataset.filter(d => !masterWatches.some(m => m.id === d.id));
+ masterWatches = [...masterWatches, ...uniqueMore];
+ document.getElementById("viewMoreContainer").style.display = "none";
+ renderWatches();
+ alert("4 Premium items appended successfully!");
+ }
+
+ function addToCart(name, price, id) {
+ const watchItem = masterWatches.find(w => w.id === id) || allWatchesDataset.find(w => w.id === id);
+ cart.push(watchItem);
+ updateCounters();
+ renderCartModal();
+ alert(name + " added to cart!");
+ }
+
+ function toggleWishlistState(id) {
+ const watchItem = masterWatches.find(w => w.id === id) || allWatchesDataset.find(w => w.id === id);
+ const index = wishlist.findIndex(item => item.id === id);
+
+ if (index !== -1) {
+ wishlist.splice(index, 1);
+ alert(watchItem.name + " removed from wishlist!");
+ } else {
+ wishlist.push(watchItem);
+ alert(watchItem.name + " added to wishlist!");
+ }
+ updateCounters();
+ renderWatches();
+ renderWishlistModal();
+ }
+
+ function updateCounters() {
+ document.getElementById("cart-count").innerText = cart.length;
+ document.getElementById("wishlist-count").innerText = wishlist.length;
+ }
+
+ function renderWishlistModal() {
+ const body = document.getElementById("wishlistModalBody");
+ if(wishlist.length === 0) {
+ body.innerHTML = `<div class="text-center py-4 text-muted">Your Wishlist is empty.</div>`;
+ return;
+ }
+ let html = `<div class="list-group">`;
+ wishlist.forEach(item => {
+ html += `
+ <div class="list-group-item d-flex align-items-center justify-content-between p-3">
+ <div class="d-flex align-items-center">
+ <img src="${item.image}" style="width: 50px; height: 50px; object-fit: cover; border-radius: 8px;" class="me-3">
+ <div>
+ <h6 class="mb-0 fw-bold">${item.name}</h6>
+ <small class="text-warning">₹${item.price.toLocaleString('en-IN')}</small>
+ </div>
+ </div>
+ <button class="btn btn-sm btn-danger rounded-circle" onclick="toggleWishlistState(${item.id})">
+ <i class="ri-delete-bin-line"></i>
+ </button>
+ </div>
+ `;
+ });
+ html += `</div>`;
+ body.innerHTML = html;
+ }
+
+ function renderCartModal() {
+ const body = document.getElementById("cartModalBody");
+ if(cart.length === 0) {
+ body.innerHTML = `<div class="text-center py-4 text-muted">Your Cart is empty.</div>`;
+ return;
+ }
+ let html = `<div class="list-group mb-3">`;
+ let total = 0;
+ cart.forEach((item, index) => {
+ total += item.price;
+ html += `
+ <div class="list-group-item d-flex align-items-center justify-content-between p-3">
+ <div class="d-flex align-items-center">
+ <img src="${item.image}" style="width: 50px; height: 50px; object-fit: cover; border-radius: 8px;" class="me-3">
+ <div>
+ <h6 class="mb-0 fw-bold">${item.name}</h6>
+ <small class="text-warning">₹${item.price.toLocaleString('en-IN')}</small>
+ </div>
+ </div>
+ <button class="btn btn-sm btn-outline-danger" onclick="removeFromCart(${index})">
+ Remove
+ </button>
+ </div>
+ `;
+ });
+ html += `</div>`;
+ html += `
+ <div class="d-flex justify-content-between align-items-center fw-bold fs-5 p-2 bg-light rounded mb-3">
+ <span>Subtotal:</span>
+ <span class="text-warning">₹${total.toLocaleString('en-IN')}</span>
+ </div>
+ <button class="btn btn-dark w-100 py-2 rounded-pill" data-bs-dismiss="modal" onclick="openPayment(null, true, ${total})">
+ Proceed To Checkout
+ </button>
+ `;
+ body.innerHTML = html;
+ }
+
+ function removeFromCart(index) {
+ cart.splice(index, 1);
+ updateCounters();
+ renderCartModal();
+ }
+
+ function showSignup(){
+ document.getElementById("loginForm").style.display = "none";
+ document.getElementById("signupForm").style.display = "block";
+ }
+
+ function showLogin(){
+ document.getElementById("signupForm").style.display = "none";
+ document.getElementById("loginForm").style.display = "block";
+ }
+
+ const loginBtn = document.querySelector("#loginForm button");
+
+ loginBtn.addEventListener("click", function () {
+ const email = document.querySelector('#loginForm input[type="email"]').value.trim();
+ const password = document.querySelector('#loginForm input[type="password"]').value.trim();
+ const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+ if (email === "") { alert("Please enter email"); return; }
+ if (!emailPattern.test(email)) { alert("Please enter valid email"); return; }
+ if (password === "") { alert("Please enter password"); return; }
+ if (password.length < 6) { alert("Password must be at least 6 characters"); return; }
+
+ alert("Login Successful");
+ });
+
+ const signupBtn = document.querySelector("#signupForm button");
+
+ signupBtn.addEventListener("click", function () {
+ const name = document.querySelector('#signupForm input[type="text"]').value.trim();
+ const email = document.querySelector('#signupForm input[type="email"]').value.trim();
+ const password = document.querySelector('#signupForm input[type="password"]').value.trim();
+ const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+ if (name === "") { alert("Please enter full name"); return; }
+ if (email === "") { alert("Please enter email"); return; }
+ if (!emailPattern.test(email)) { alert("Please enter valid email"); return; }
+ if (password === "") { alert("Please create password"); return; }
+ if (password.length < 6) { alert("Password must be at least 6 characters"); return; }
+
+ alert("Account Created Successfully");
+ });
+
+ function openPayment(id, isBatchCart = false, customTotal = 0){
+ const form = document.getElementById("checkoutForm");
+ form.classList.remove("was-validated");
+ form.reset();
+
+ const oldPriceEl = document.getElementById("productOldPrice");
+ const offerBadgeEl = document.getElementById("checkoutOfferBadge");
+ const discountRowEl = document.getElementById("discountRow");
+ const discountAmountEl = document.getElementById("discountAmount");
+
+ if (isBatchCart) {
+ if (cart.length > 0) {
+ document.getElementById("productName").innerText = cart.map(item => item.name).join(", ");
+ document.getElementById("productImage").src = cart[0].image;
+ } else {
+ document.getElementById("productName").innerText = "Cart Summary Pack";
+ document.getElementById("productImage").src = "https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?q=80&w=800";
+ }
+ document.getElementById("productPrice").innerText = "₹" + customTotal.toLocaleString('en-IN');
+ document.getElementById("totalPrice").innerText = "₹" + customTotal.toLocaleString('en-IN');
+ oldPriceEl.classList.add("d-none");
+ offerBadgeEl.innerHTML = "";
+ discountRowEl.classList.add("d-none");
+ } else {
+ const watch = masterWatches.find(w => w.id === id) || allWatchesDataset.find(w => w.id === id);
+ 
+ document.getElementById("productName").innerText = watch.name;
+ document.getElementById("productPrice").innerText = "₹" + watch.price.toLocaleString('en-IN');
+ document.getElementById("totalPrice").innerText = "₹" + watch.price.toLocaleString('en-IN');
+ document.getElementById("productImage").src = watch.image;
+
+ if (watch.offer && watch.originalPrice) {
+ oldPriceEl.innerText = "₹" + watch.originalPrice.toLocaleString('en-IN');
+ oldPriceEl.classList.remove("d-none");
+ offerBadgeEl.innerHTML = `<span class="badge bg-danger"><i class="bi bi-gift-fill me-1"></i>Promo Applied: ${watch.offerText}</span>`;
+ let savings = watch.originalPrice - watch.price;
+ discountAmountEl.innerText = "- ₹" + savings.toLocaleString('en-IN');
+ discountRowEl.classList.remove("d-none");
+ } else {
+ oldPriceEl.classList.add("d-none");
+ offerBadgeEl.innerHTML = "";
+ discountRowEl.classList.add("d-none");
+ }
+ }
+
+ let paymentModal = new bootstrap.Modal(document.getElementById('paymentModal'));
+ paymentModal.show();
+ }
+
+ function validatePaymentForm() {
+ const form = document.getElementById("checkoutForm");
+ form.classList.add("was-validated");
+
+ if (!form.checkValidity()) {
+ const firstInvalid = form.querySelector(":invalid");
+ if(firstInvalid) {
+ alert("Please fix the empty or invalid fields highlighted in red before paying.");
+ firstInvalid.focus();
+ }
+ return;
+ }
+
+ paymentSuccess();
+ }
+
+ function paymentSuccess(){
+ alert("Payment Successful! Your order has been placed securely.");
+ const modalElement = document.getElementById('paymentModal');
+ const modalInstance = bootstrap.Modal.getInstance(modalElement);
+ if(modalInstance) {
+ modalInstance.hide();
+ }
+ }
+
+</script>
+
+<script src="https://code.jquery.com/jquery-3.7.1.slim.js" integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
