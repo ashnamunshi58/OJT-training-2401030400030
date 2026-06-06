@@ -325,7 +325,7 @@
  </ul>
 
  <div class="search-box">
- <input type="text" id="watchSearch" class="form-control" placeholder="Search brands, collections..." oninput="searchWatches()">
+ <input type="text" id="watchSearch" class="form-control" placeholder="Search here..." oninput="searchWatches()">
  <i class="ri-search-line"></i>
  </div>
 
@@ -590,7 +590,7 @@
 
  <div class="col-md-6">
  <label class="form-label">Phone Number</label>
- <input type="tel" id="payPhone" class="form-control" placeholder="9876543210" pattern="[0-9]{10}" required>
+ <input type="tel" id="payPhone" class="form-control" placeholder="+91" pattern="[0-9]{10}" required>
  <div class="invalid-feedback">Please enter a valid 10-digit phone number.</div>
  </div>
 
@@ -607,19 +607,19 @@
 
  <div class="col-md-4">
  <label class="form-label">City</label>
- <input type="text" id="payCity" class="form-control" placeholder="Ahmedabad" required>
+ <input type="text" id="payCity" class="form-control" placeholder="" required>
  <div class="invalid-feedback">Please enter your city.</div>
  </div>
 
  <div class="col-md-4">
  <label class="form-label">State</label>
- <input type="text" id="payState" class="form-control" placeholder="Gujarat" required>
+ <input type="text" id="payState" class="form-control" placeholder="" required>
  <div class="invalid-feedback">Please enter your state.</div>
  </div>
 
  <div class="col-md-4">
  <label class="form-label">PIN Code</label>
- <input type="text" id="payPin" class="form-control" placeholder="380001" pattern="[0-9]{6}" required>
+ <input type="text" id="payPin" class="form-control" placeholder="" pattern="[0-9]{6}" required>
  <div class="invalid-feedback">Please enter a valid 6-digit PIN code.</div>
  </div>
 
